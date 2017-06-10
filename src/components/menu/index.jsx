@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
 
 // import css from './styles.css';
 import MenuButton from '../menu-button';
@@ -8,19 +7,30 @@ import MenuButton from '../menu-button';
 const styles = {
   menu: {
     display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
 };
 
-const Menu = ({ handleNewGameRequest }) => (
+const Menu = ({ changeCard }) => (
   <div style={styles.menu}>
-    <MenuButton label={'Host Game'} onClick={handleNewGameRequest} />
-    <MenuButton label={'View Cards'} onClick={() => browserHistory.push('/card-viewer')} />
-    <MenuButton label={'Three'} />
+    <MenuButton points={1} onClick={changeCard} />
+    <MenuButton points={2} onClick={changeCard} />
+    <MenuButton points={3} onClick={changeCard} />
+
+    <MenuButton points={5} onClick={changeCard} />
+    <MenuButton points={8} onClick={changeCard} />
+    <MenuButton points={13} onClick={changeCard} />
+
+    <MenuButton points={20} onClick={changeCard} />
+    <MenuButton points={40} onClick={changeCard} />
+    <MenuButton points={100} onClick={changeCard} />
   </div>
 );
 
 Menu.propTypes = {
-  handleNewGameRequest: PropTypes.func.isRequired,
+  currentFruit: PropTypes.string.isRequired,
+  changeCard: PropTypes.func.isRequired,
 };
 
 export default Menu;
