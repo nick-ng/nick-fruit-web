@@ -1,5 +1,3 @@
 export default {
-  UPDATE_ROOM_ID: 'UPDATE_ROOM_ID',
   CHANGE_CARD: 'CHANGE_CARD',
-  FLIP_CARD: 'FLIP_CARD',
 };

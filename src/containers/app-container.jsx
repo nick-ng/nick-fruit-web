@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import App from '../components/app';
 
-import { getGameRoom } from '../stores/game-room-store';
-
 const AppContainer = ({ gameId, children }) => (
   <App
     gameId={gameId}
@@ -25,8 +23,6 @@ AppContainer.defaultProps = {
 };
 
 export default connect(
-  state => ({
-    gameId: getGameRoom(state),
-  }),
+  () => ({}),
   () => ({}),
 )(AppContainer);

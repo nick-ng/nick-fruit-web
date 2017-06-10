@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const styles = {
   button: {
     fontSize: '5vmin',
-    width: '24vmin',
-    height: '24vmin',
+    width: '29vmin',
+    height: '29vmin',
     margin: '1vmin',
   },
 };
@@ -13,7 +13,7 @@ const styles = {
 const MenuButton = (props) => {
   const {
     onClick,
-    label,
+    points,
   } = props;
 
   return (
@@ -21,7 +21,7 @@ const MenuButton = (props) => {
       onClick={onClick}
       style={styles.button}
     >
-      {label}
+      {points}
     </button>
   );
 };
@@ -30,10 +30,10 @@ export default MenuButton;
 
 MenuButton.propTypes = {
   onClick: PropTypes.func,
-  label: PropTypes.string,
+  points: PropTypes.number,
 };
 
 MenuButton.defaultProps = {
   onClick: () => {},
-  label: 'OK',
+  points: 0,
 };
