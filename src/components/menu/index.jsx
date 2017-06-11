@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 // import css from './styles.css';
 import MenuButton from '../menu-button';
+import SingleButton from '../single-button';
 
 const styles = {
   menu: {
@@ -12,25 +14,32 @@ const styles = {
   },
 };
 
-const Menu = ({ changeCard }) => (
-  <div style={styles.menu}>
-    <MenuButton points={1} onClick={changeCard} />
-    <MenuButton points={2} onClick={changeCard} />
-    <MenuButton points={3} onClick={changeCard} />
-
-    <MenuButton points={5} onClick={changeCard} />
-    <MenuButton points={8} onClick={changeCard} />
-    <MenuButton points={13} onClick={changeCard} />
-
-    <MenuButton points={20} onClick={changeCard} />
-    <MenuButton points={40} onClick={changeCard} />
-    <MenuButton points={100} onClick={changeCard} />
-  </div>
-);
+const Menu = ({ fruits, currentFruit, onChangeCard }) => {
+  let singleFruit = null;
+  if (currentFruit) {
+    singleFruit = fruits.get(currentFruit);
+  }
+  return (
+    <div style={styles.menu}>
+      {currentFruit && <SingleButton
+        points={singleFruit.get('points')}
+        image={singleFruit.get('image').get('url')}
+        onClick={() => onChangeCard('')}
+      />}
+      {fruits && !currentFruit && fruits.toSeq().map(fruit => (<MenuButton
+        key={fruit.get('points')}
+        points={fruit.get('points')}
+        image={fruit.get('image').get('url')}
+        onClick={() => onChangeCard(fruit.get('points'))}
+      />))}
+    </div>
+  );
+};
 
 Menu.propTypes = {
+  fruits: ImmutablePropTypes.map.isRequired,
   currentFruit: PropTypes.string.isRequired,
-  changeCard: PropTypes.func.isRequired,
+  onChangeCard: PropTypes.func.isRequired,
 };
 
 export default Menu;
