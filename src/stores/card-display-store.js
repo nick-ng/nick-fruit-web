@@ -17,7 +17,7 @@ const initialState = Immutable.fromJS({
 // Selectors
 const cardDisplayState = state => state.cardDisplayStore;
 
-export const getCurrentCard = createSelector(
+export const getCurrentFruit = createSelector(
   cardDisplayState,
   c => c.get('fruit'),
 );

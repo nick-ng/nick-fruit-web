@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 
 const styles = {
   button: {
-    fontSize: '10vmin',
+    fontSize: '30vmin',
     fontWeight: '900',
-    width: '29vmin',
-    height: '29vmin',
-    margin: '1vmin',
+    width: '87vmin',
+    height: '87vmin',
     backgroundSize: 'cover',
     WebkitTextFillColor: 'white',
-    WebkitTextStroke: '0.5vmin black',
+    WebkitTextStroke: '1.5vmin black',
   },
 };
 
-const MenuButton = ({ onClick, points, image }) => {
+const SingleButton = ({ onClick, points, image }) => {
   const smallImage = `${image}?fm=jpg&fl=progressive&w=600&h=600&fit=thumb`;
   return (
     <button
@@ -26,15 +25,15 @@ const MenuButton = ({ onClick, points, image }) => {
   );
 };
 
-export default MenuButton;
+export default SingleButton;
 
-MenuButton.propTypes = {
+SingleButton.propTypes = {
   onClick: PropTypes.func,
   points: PropTypes.string,
   image: PropTypes.string,
 };
 
-MenuButton.defaultProps = {
+SingleButton.defaultProps = {
   onClick: () => {},
   points: '0',
   image: '',

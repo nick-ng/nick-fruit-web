@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 
 const plugins = [
   new HtmlWebpackPlugin({
-    title: 'Nick&rsquo;s Guildball Health Tracker 2',
+    title: 'Nick&rsquo;s Fruit Chooser',
     favicon: `${__dirname}/favicon.ico`,
     template: './index.html',
     inject: 'true',

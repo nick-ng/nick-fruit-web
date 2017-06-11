@@ -13,7 +13,9 @@ const processResponse = (response) => {
   return response.text();
 };
 
-const get = (url, headers = {}) => fetch(url, {
+export const xingkaiParseInt = a => a - 0;
+
+export const get = (url, headers = {}) => fetch(url, {
   headers: Object.assign({
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -23,7 +25,7 @@ const get = (url, headers = {}) => fetch(url, {
 })
 .then(res => processResponse(res));
 
-const post = (url, jsonData = {}, headers = {}) => fetch(url, {
+export const post = (url, jsonData = {}, headers = {}) => fetch(url, {
   headers: Object.assign({
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -35,6 +37,7 @@ const post = (url, jsonData = {}, headers = {}) => fetch(url, {
 .then(res => processResponse(res));
 
 export default {
+  xingkaiParseInt,
   get,
   post,
 };
