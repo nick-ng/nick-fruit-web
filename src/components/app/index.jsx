@@ -6,6 +6,7 @@ const styles = {
     padding: '0',
     margin: '0',
     fontSize: '1rem',
+    fontFamily: 'Comic Sans MS',
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
