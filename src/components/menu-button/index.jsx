@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const styles = {
   button: {
     fontSize: '10vmin',
+    fontFamily: 'Comic Sans MS',
     fontWeight: '900',
     width: '29vmin',
     height: '29vmin',
