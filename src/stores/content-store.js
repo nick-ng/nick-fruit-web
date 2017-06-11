@@ -13,7 +13,7 @@ const {
 
 // Initial State
 const initialState = Immutable.fromJS({
-  fruits: {},
+  fruits: null,
 });
 
 // Selectors

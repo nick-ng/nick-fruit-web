@@ -11,9 +11,13 @@ import { getCurrentFruit, changeCard } from '../stores/card-display-store';
 const MenuContainer = props => <Menu {...props} />;
 
 MenuContainer.propTypes = {
-  fruits: ImmutablePropTypes.map.isRequired,
+  fruits: ImmutablePropTypes.map,
   currentFruit: PropTypes.string.isRequired,
   onChangeCard: PropTypes.func.isRequired,
+};
+
+MenuContainer.defaultProps = {
+  fruits: null,
 };
 
 export default connect(

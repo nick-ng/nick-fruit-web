@@ -37,9 +37,13 @@ const Menu = ({ fruits, currentFruit, onChangeCard }) => {
 };
 
 Menu.propTypes = {
-  fruits: ImmutablePropTypes.map.isRequired,
+  fruits: ImmutablePropTypes.map,
   currentFruit: PropTypes.string.isRequired,
   onChangeCard: PropTypes.func.isRequired,
+};
+
+Menu.defaultProps = {
+  fruits: null,
 };
 
 export default Menu;
