@@ -1,4 +1,4 @@
 export default {
-  CHANGE_CARD: 'CHANGE_CARD',
+  FLIP_CARD: 'FLIP_CARD',
   UPDATE_CONTENT: 'UPDATE_CONTENT',
 };

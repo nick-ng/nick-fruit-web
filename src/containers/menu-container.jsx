@@ -6,14 +6,14 @@ import { connect } from 'react-redux';
 import Menu from '../components/menu';
 
 import { getAllFruits } from '../stores/content-store';
-import { getCurrentFruit, changeCard } from '../stores/card-display-store';
+import { showCardFront, flipCard } from '../stores/card-display-store';
 
 const MenuContainer = props => <Menu {...props} />;
 
 MenuContainer.propTypes = {
   fruits: ImmutablePropTypes.map,
-  currentFruit: PropTypes.string.isRequired,
-  onChangeCard: PropTypes.func.isRequired,
+  showFront: PropTypes.bool.isRequired,
+  onFlipCard: PropTypes.func.isRequired,
 };
 
 MenuContainer.defaultProps = {
@@ -23,9 +23,9 @@ MenuContainer.defaultProps = {
 export default connect(
   state => ({
     fruits: getAllFruits(state),
-    currentFruit: getCurrentFruit(state),
+    showFront: showCardFront(state),
   }),
   dispatch => ({
-    onChangeCard: card => dispatch(changeCard(card)),
+    onFlipCard: card => dispatch(flipCard(card)),
   }),
 )(MenuContainer);
