@@ -56,7 +56,7 @@ module.exports = {
         query: {
           presets: ['react', ['env', {
             targets: {
-              browsers: ['chrome >= 23', 'safari >= 4'],
+              browsers: ['chrome >= 23', 'safari >= 5'],
             },
           }]],
         },
