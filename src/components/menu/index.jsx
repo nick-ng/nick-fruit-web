@@ -21,18 +21,18 @@ const styles = {
   },
 };
 
-const clickHandler = points => () => {
-  browserHistory.push(points);
-};
+const Menu = ({ fruits, showFront, onFlipCard, params, card, onChangeCard }) => {
+  const clickHandler = points => () => {
+    onChangeCard(points);
+    browserHistory.push(points ? 'chosen' : '');
+  };
 
-const Menu = ({ fruits, showFront, onFlipCard, params }) => {
-  const currentFruit = params.points;
+  const currentFruit = card;
   let singleFruit = null;
   if (currentFruit && fruits) {
     singleFruit = fruits.get(currentFruit);
   }
   if (!singleFruit && params.points) {
-    browserHistory.push('/');
     return null;
   }
   return (
@@ -53,7 +53,7 @@ const Menu = ({ fruits, showFront, onFlipCard, params }) => {
       </div>
       {singleFruit && <button
         style={styles.backButton}
-        onClick={clickHandler('')}
+        onClick={clickHandler(null)}
       >
       Back
       </button>}
@@ -66,11 +66,14 @@ Menu.propTypes = {
   showFront: PropTypes.bool.isRequired,
   onFlipCard: PropTypes.func.isRequired,
   params: PropTypes.objectOf(PropTypes.string),
+  onChangeCard: PropTypes.func.isRequired,
+  card: PropTypes.string,
 };
 
 Menu.defaultProps = {
   fruits: null,
   params: {},
+  card: null,
 };
 
 export default Menu;

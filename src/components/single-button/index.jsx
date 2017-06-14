@@ -19,6 +19,13 @@ const styles = {
 const SingleButton = ({ onClick, points, showFront, image }) => {
   const smallImage = `${image}?fm=jpg&fl=progressive&w=600&h=600&fit=thumb`;
   const buttonStyle = Object.assign({}, styles.button, { backgroundImage: `url("${mysteryPineapple}")` });
+  let text = points;
+  if (points === '80085') {
+    text = '\u221e'; // Infinity symbol
+  }
+  if (points === '80086') {
+    text = '';
+  }
   if (showFront) {
     Object.assign(buttonStyle, { backgroundImage: `url("${smallImage}")` });
   }
@@ -27,7 +34,7 @@ const SingleButton = ({ onClick, points, showFront, image }) => {
       onClick={onClick}
       style={buttonStyle}
     >
-      {showFront ? points : '?'}
+      {showFront ? text : '?'}
     </button>
   );
 };

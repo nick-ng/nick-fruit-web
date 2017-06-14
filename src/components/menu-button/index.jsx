@@ -17,12 +17,19 @@ const styles = {
 
 const MenuButton = ({ onClick, points, image }) => {
   const smallImage = `${image}?fm=jpg&fl=progressive&w=600&h=600&fit=thumb`;
+  let text = points;
+  if (points === '80085') {
+    text = '\u221e'; // Infinity symbol
+  }
+  if (points === '80086') {
+    text = '';
+  }
   return (
     <button
       onClick={onClick}
       style={Object.assign({}, styles.button, { backgroundImage: `url("${smallImage}")` })}
     >
-      {points}
+      {text}
     </button>
   );
 };

@@ -6,16 +6,23 @@ import constants from './constants';
 
 // Constants
 const {
+    CHANGE_CARD,
     FLIP_CARD,
 } = constants;
 
 // Initial State
 const initialState = Immutable.fromJS({
+  points: null,
   showFront: false,
 });
 
 // Selectors
 const cardDisplayState = state => state.cardDisplayStore;
+
+export const getCurrentCard = createSelector(
+  cardDisplayState,
+  c => c.get('points'),
+);
 
 export const showCardFront = createSelector(
   cardDisplayState,
@@ -23,6 +30,14 @@ export const showCardFront = createSelector(
 );
 
 // Actions
+export const changeCard = points => dispatch => dispatch({
+  type: CHANGE_CARD,
+  payload: {
+    points,
+    showFront: false,
+  },
+});
+
 export const flipCard = () => (dispatch, getState) => dispatch({
   type: FLIP_CARD,
   payload: {
@@ -30,14 +45,8 @@ export const flipCard = () => (dispatch, getState) => dispatch({
   },
 });
 
-export const flipCardDown = () => dispatch => dispatch({
-  type: FLIP_CARD,
-  payload: {
-    showFront: false,
-  },
-});
-
 // Reducers
 export default createReducer(initialState, {
+  [CHANGE_CARD]: (state, action) => state.merge(Immutable.fromJS(action.payload)),
   [FLIP_CARD]: (state, action) => state.merge(Immutable.fromJS(action.payload)),
 });
