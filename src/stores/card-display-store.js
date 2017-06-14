@@ -12,8 +12,8 @@ const {
 
 // Initial State
 const initialState = Immutable.fromJS({
-  playerName: '',
-  showFront: true,
+  points: null,
+  showFront: false,
 });
 
 // Selectors
@@ -21,7 +21,7 @@ const cardDisplayState = state => state.cardDisplayStore;
 
 export const getCurrentCard = createSelector(
   cardDisplayState,
-  c => c.get('playerName'),
+  c => c.get('points'),
 );
 
 export const showCardFront = createSelector(
@@ -30,18 +30,18 @@ export const showCardFront = createSelector(
 );
 
 // Actions
-export const changeCard = playerName => dispatch => dispatch({
+export const changeCard = points => dispatch => dispatch({
   type: CHANGE_CARD,
   payload: {
-    playerName,
-    showFront: true,
+    points,
+    showFront: false,
   },
 });
 
 export const flipCard = () => (dispatch, getState) => dispatch({
   type: FLIP_CARD,
   payload: {
-    showFront: !showCardFront(getState),
+    showFront: !showCardFront(getState()),
   },
 });
 
