@@ -12,6 +12,7 @@ const styles = {
     backgroundSize: 'cover',
     WebkitTextFillColor: 'white',
     WebkitTextStroke: '0.5vmin black',
+    cursor: 'pointer',
   },
 };
 
