@@ -18,6 +18,7 @@ const styles = {
     marginTop: '5vh',
     alignSelf: 'flex-start',
     padding: '5vmin 10vmin',
+    cursor: 'pointer',
   },
 };
 
