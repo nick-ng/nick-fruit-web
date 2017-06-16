@@ -54,7 +54,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', ['env', {
+          presets: ['react', 'transform-async-to-generator', ['env', {
             targets: {
               browsers: ['safari >= 6'],
             },
