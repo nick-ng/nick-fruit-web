@@ -1,5 +1,5 @@
 {
-  "presets": ["react", ["env", {
+  "presets": ["react", "transform-async-to-generator", ["env", {
       "targets": {
         "browsers": ["safari >= 6"]
       }
