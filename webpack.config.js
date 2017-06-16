@@ -53,13 +53,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          presets: ['react', 'transform-async-to-generator', ['env', {
-            targets: {
-              browsers: ['safari >= 6'],
-            },
-          }]],
-        },
       },
       {
         test: /\.json$/,

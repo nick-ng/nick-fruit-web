@@ -1,7 +1,10 @@
 {
-  "presets": ["react", "transform-async-to-generator", ["env", {
-      "targets": {
-        "browsers": ["safari >= 6"]
-      }
-    }]]
+  "presets": ["react", ["env", {
+    "targets": {
+      "browsers": ["safari >= 6"]
+    }
+  }]],
+  "plugins": [
+    "transform-async-to-generator"
+  ]
 }
